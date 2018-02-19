@@ -7,6 +7,20 @@
     <body>
         <script>
             console.log(todo);
+
+            var item = [
+                'todo 1',
+                'todo 2',
+                'todo 3',
+                'todo 4'
+            ];
+
+            var todo = new todo.APP(item);
+
+            todo.add('todo content');
+            todo.toggle(1);
+            todo.remove(1);
+
         </script>
     </body>
 </html>
