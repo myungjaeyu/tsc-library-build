@@ -5,16 +5,8 @@ namespace todo
     {
         id : number;
         content : string;
-        state : ItemState;
+        state : boolean;
     }
-
-
-    export enum ItemState
-    {
-        NOT = 0,
-        OK  = 1
-    }
-
 
     export interface IService
     {
@@ -40,11 +32,10 @@ namespace todo
         {
             console.log('service constructor', items);
 
-            if (items) {
+            if (items) 
                 items.forEach(v => this.add(v));
-            }
-
         }
+
 
         add(item : Item) : void
         add(item : string) : void
@@ -55,17 +46,14 @@ namespace todo
             let _item : Item = {
                 id      : Service._genId(),
                 content : null,
-                state   : ItemState.NOT
+                state   : item.state ? true : false
             };
 
-            if(typeof item === 'string')
+            if (typeof item === 'string')
                 _item.content = item;
 
             else if (typeof item.content === 'string') 
                 _item.content = item.content;
-
-                if(typeof item.state === 'number')
-                    _item.state = item.state ? ItemState.OK : ItemState.NOT;
 
             else throw 'invalid param';
 
@@ -77,6 +65,12 @@ namespace todo
         toggle(id : number) : void
         {
             console.log('service toggle', id);
+
+            let item = this.items.filter(v => v.id === id)[0];
+
+            if (item)
+                item.state = !item.state;
+
         }
 
 
