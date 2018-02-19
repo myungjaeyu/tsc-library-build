@@ -10,6 +10,8 @@ namespace todo
 
     export interface IService
     {
+        getAll() : Item[];
+
         add(item : Item)   : void;
         add(item : string) : void;
 
@@ -30,10 +32,17 @@ namespace todo
 
         constructor(items : Item[])
         {
-            console.log('service constructor', items);
+            // console.log('service constructor', items);
 
             if (items) 
                 items.forEach(v => this.add(v));
+        }
+
+
+        getAll() : Item[]
+        {
+
+            return this.items;
         }
 
 
@@ -41,7 +50,7 @@ namespace todo
         add(item : string) : void
         add(item : any) : void
         {
-            console.log('service add', item, Service._Id);
+            // console.log('service add', item, Service._Id);
 
             let _item : Item = {
                 id      : Service._genId(),
@@ -64,7 +73,7 @@ namespace todo
 
         toggle(id : number) : void
         {
-            console.log('service toggle', id);
+            // console.log('service toggle', id);
 
             let item = this.items.filter(v => v.id === id)[0];
 
@@ -77,7 +86,7 @@ namespace todo
 
         remove(id : number) : void
         {
-            console.log('service remove', id);
+            // console.log('service remove', id);
 
             if(!id) 
                 throw 'invalid item';
