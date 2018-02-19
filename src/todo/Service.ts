@@ -1,26 +1,6 @@
 namespace todo
 {
 
-    export interface Item
-    {
-        id : number;
-        content : string;
-        state : boolean;
-    }
-
-    export interface IService
-    {
-        getAll() : Item[];
-
-        add(item : Item)   : void;
-        add(item : string) : void;
-
-        toggle(id : number) : void;
-
-        remove(id : number) : void;
-    }
-
-
     export class Service implements IService
     {
 
@@ -30,9 +10,8 @@ namespace todo
         private items : Item[] = [];
 
 
-        constructor(items : Item[])
+        constructor(items : string[])
         {
-            // console.log('service constructor', items);
 
             if (items) 
                 items.forEach(v => this.add(v));
@@ -46,50 +25,40 @@ namespace todo
         }
 
 
-        add(item : Item) : void
-        add(item : string) : void
-        add(item : any) : void
+        add(content : string) : void
         {
-            // console.log('service add', item, Service._Id);
 
-            let _item : Item = {
+            if(!content) 
+                throw 'invalid param';
+
+            let item : Item = {
                 id      : Service._genId(),
-                content : null,
-                state   : item.state ? true : false
+                content : content,
+                state   : false
             };
 
-            if (typeof item === 'string')
-                _item.content = item;
 
-            else if (typeof item.content === 'string') 
-                _item.content = item.content;
-
-            else throw 'invalid param';
-
-
-            this.items.push(_item);
+            this.items.push(item);
         }
 
 
         toggle(id : number) : void
         {
-            // console.log('service toggle', id);
 
             let item = this.items.filter(v => v.id === id)[0];
 
             if (item)
                 item.state = !item.state;
 
-            else throw 'invalid item';
+            else throw 'invalid param';
         }
 
 
         remove(id : number) : void
         {
-            // console.log('service remove', id);
 
             if(!id) 
-                throw 'invalid item';
+                throw 'invalid param';
 
             this.items = this.items.filter(v => v.id !== id);
         }

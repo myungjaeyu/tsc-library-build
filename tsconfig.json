@@ -1,1 +1,7 @@
-{ "compilerOptions" : { "target" : "es5", "outFile": "./dist/todo.js" } }
+{ 
+    "compilerOptions" : { 
+        "target" : "es5", 
+        "outFile": "./dist/todo.js",
+        "sourceMap": true
+    }
+}

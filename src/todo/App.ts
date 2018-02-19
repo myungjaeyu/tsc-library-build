@@ -6,20 +6,21 @@ namespace todo
         private _service : IService;
 
 
-        constructor(items : Item[])
+        constructor(items : string[])
         {
             this._service = new Service(items);
-            // console.log('app constructor', this._service);
         }
+
 
         public getAll() : Item[]
         {
             return this._service.getAll();
         }
 
-        public add(item : any) : void
+
+        public add(content : string) : void
         {
-            this._service.add(item);
+            this._service.add(content);
         }
 
 
