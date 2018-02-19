@@ -71,12 +71,18 @@ namespace todo
             if (item)
                 item.state = !item.state;
 
+            else throw 'invalid item';
         }
 
 
         remove(id : number) : void
         {
             console.log('service remove', id);
+
+            if(!id) 
+                throw 'invalid item';
+
+            this.items = this.items.filter(v => v.id !== id);
         }
 
     }
