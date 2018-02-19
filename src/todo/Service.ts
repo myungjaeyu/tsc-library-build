@@ -50,7 +50,27 @@ namespace todo
         add(item : string) : void
         add(item : any) : void
         {
-            console.log('service add', item, Service._genId());
+            console.log('service add', item, Service._Id);
+
+            let _item : Item = {
+                id      : Service._genId(),
+                content : null,
+                state   : ItemState.NOT
+            };
+
+            if(typeof item === 'string')
+                _item.content = item;
+
+            else if (typeof item.content === 'string') 
+                _item.content = item.content;
+
+                if(typeof item.state === 'number')
+                    _item.state = item.state ? ItemState.OK : ItemState.NOT;
+
+            else throw 'invalid param';
+
+
+            this.items.push(_item);
         }
 
 
