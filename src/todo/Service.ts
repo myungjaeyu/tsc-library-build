@@ -30,19 +30,27 @@ namespace todo
     export class Service implements IService
     {
 
+        private static _Id = 0;
+        private static _genId  = () : number => Service._Id ++;
+
         private items : Item[] = [];
 
 
         constructor(items : Item[])
         {
             console.log('service constructor', items);
+
+            if (items) {
+                items.forEach(v => this.add(v));
+            }
+
         }
 
         add(item : Item) : void
         add(item : string) : void
         add(item : any) : void
         {
-            console.log('service add', item);
+            console.log('service add', item, Service._genId());
         }
 
 
