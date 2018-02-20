@@ -4,7 +4,7 @@ namespace todo
     export class Service implements IService
     {
 
-        private static _Id = 0;
+        private static _Id = 1;
         private static _genId  = () : number => Service._Id ++;
 
         private items : Item[] = [];

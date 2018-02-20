@@ -3,7 +3,7 @@ declare namespace todo {
         private static _Id;
         private static _genId;
         private items;
-        constructor(items: Item[]);
+        constructor(items: string[]);
         getAll(): Item[];
         add(content: string): void;
         toggle(id: number): void;
