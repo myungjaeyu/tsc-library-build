@@ -52,7 +52,7 @@ namespace todo
         private _initialize(element : HTMLElement) : void
         {
 
-            element.addEventListener('click', (e) => {
+            element.addEventListener('click', (e : any) => {
                 if (e.target.parentElement.className === 'Todo__Item')
                     this[e.target['className'].replace('Item__', '')]( +e.target.parentElement.dataset.itemId );
             });

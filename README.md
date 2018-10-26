@@ -9,6 +9,3 @@ $ npm install -g typescript
 ```shell
 $ tsc -w
 ```
-
-## Requirements
-- [TSTL - TypeScript-STL (Standard Template Library, migrated from C++) - @samchon](https://github.com/samchon/tstl)
