@@ -1,4 +1,4 @@
-declare namespace todo {
+declare namespace Todo {
     class APP {
         private _service : IService;
         private _renderer : Renderer;

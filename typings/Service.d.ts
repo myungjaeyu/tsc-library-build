@@ -1,4 +1,4 @@
-declare namespace todo {
+declare namespace Todo {
     class Service implements IService {
         private static _Id;
         private static _genId;

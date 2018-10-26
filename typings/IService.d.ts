@@ -1,4 +1,4 @@
-declare namespace todo {
+declare namespace Todo {
     interface IService {
         getAll(): Item[];
         add(content: string): void;

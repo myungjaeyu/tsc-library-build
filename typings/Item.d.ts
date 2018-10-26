@@ -1,4 +1,4 @@
-declare namespace todo {
+declare namespace Todo {
     interface Item {
         id: number;
         content: string;

@@ -1,4 +1,4 @@
-declare namespace todo {
+declare namespace Todo {
     class Renderer {
         private element : HTMLElement;
         constructor(element: HTMLElement);
