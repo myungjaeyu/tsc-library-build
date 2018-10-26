@@ -1,11 +1,12 @@
 ## Install
 
-```shell
-$ npm install -g typescript
+```bash
+$ npm install
 ```
 
 ## Usage
 
-```shell
-$ tsc -w
+```bash
+$ npm run build
+$ npm run build:watch
 ```
