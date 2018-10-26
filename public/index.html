@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="../bin/todo.js"></script>
+    </head>
+    <body>
+
+        <div id="root"></div>
+
+        <script>
+
+            console.log(todo)
+
+            let item = ['todo 1', 'todo 2', 'todo 3', 'todo 4']
+
+            let todo = new todo.APP(document.querySelector('#root'), item)
+
+            todo.add('todo content')
+
+            todo.toggle(1)
+            todo.remove(1)
+
+            console.log(todo.getAll())
+
+        </script>
+    </body>
+</html>
